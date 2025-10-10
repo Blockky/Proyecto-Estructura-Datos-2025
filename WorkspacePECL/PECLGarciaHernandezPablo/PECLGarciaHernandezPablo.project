@@ -93,8 +93,20 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <VirtualDirectory Name="SourceFiles"/>
-    <VirtualDirectory Name="HeaderFiles"/>
+    <VirtualDirectory Name="SourceFiles">
+      <File Name="Gestor.cpp"/>
+      <File Name="Pila.cpp"/>
+      <File Name="Lista.cpp"/>
+      <File Name="Aficionado.cpp"/>
+      <File Name="Cola.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="HeaderFiles">
+      <File Name="Gestor.hpp"/>
+      <File Name="Pila.hpp"/>
+      <File Name="Lista.hpp"/>
+      <File Name="Cola.hpp"/>
+      <File Name="Aficionado.hpp"/>
+    </VirtualDirectory>
     <File Name="main.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
