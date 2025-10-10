@@ -3,6 +3,9 @@
 
 class Cola
 {
+private:
+	int ultimo, primero;
+	
 public:
     Cola();
     ~Cola();
