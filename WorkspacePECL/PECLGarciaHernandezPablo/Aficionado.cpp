@@ -2,7 +2,7 @@
 
 Aficionado::Aficionado(int llegada)
 {
-		this->ID = ID;
+		this->llegada = llegada;
 		this->socio = (rand()%2);
 		this->generarID();
 }
