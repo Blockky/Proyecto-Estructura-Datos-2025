@@ -16,10 +16,10 @@ public:
 	Aficionado(int llegada);   
  
     ~Aficionado();
-	void setID(int ID);
+	void setLlegada(int llegada);
 	void mostrar();
 	bool esSocio();
-	int getID();
+	int getLlegada();
 };
 
 #endif // AFICIONADO_HPP
