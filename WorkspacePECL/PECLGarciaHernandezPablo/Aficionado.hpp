@@ -8,12 +8,10 @@ class Aficionado
 private:
     int ID;
     bool socio; // 1: Socio, 0: Simpatizante
-    int llegada;
-	void generarID();
-	
-    
+    int llegada;	
+
 public:
-	Aficionado(int llegada);   
+	Aficionado(int id);   
  
     ~Aficionado();
 	void setLlegada(int llegada);

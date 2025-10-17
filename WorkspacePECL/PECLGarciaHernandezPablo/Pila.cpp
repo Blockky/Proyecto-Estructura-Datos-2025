@@ -3,27 +3,27 @@
 Pila::Pila()
 {
 	ultimo = NULL;
-	
+    contador = 0;
 }
 
-void Pila::insertar(Aficionado a)
+void Pila::insertar(Aficionado* a)
 {
 	pnodoPila nuevo;
 	nuevo = new NodoPila(a,ultimo);
 	ultimo = nuevo;
 }
-Aficionado Pila::extraer()
+Aficionado* Pila::extraer()
 {
 	pnodoPila nodo;
 	nodo = ultimo;
-	Aficionado a = nodo-> aficionado;
+	Aficionado* a = nodo-> aficionado;
 	if(ultimo)
 		throw runtime_error("Pila vacia");
 	ultimo = nodo->siguiente;
 	delete nodo;
 	return a;
 }
-Aficionado Pila::cima()
+Aficionado* Pila::cima()
 {
 	if(!ultimo)
 		return 0;
@@ -32,17 +32,22 @@ Aficionado Pila::cima()
 
 void Pila::mostrar()
 {
-	pnodoPila aux = ultimo;
-	cout <<"\tLa pila de aficionados es: ";
+	pnodoPila aux = this->ultimo;
+	cout <<"\tLa pila de aficionados es: " << endl;
 	while(aux)
 	{
 		cout << "-> ";
-		aux->aficionado.mostrar();
+		aux->aficionado->mostrar();
 		aux=aux->siguiente;
 	}
 	
 	cout<<endl;
 }
+
+void Pila::acutualizarCuenta(int num){
+    contador += num;
+}
+
 Pila::~Pila()
 {
 	pnodoPila aux;

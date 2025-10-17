@@ -5,13 +5,14 @@
 class NodoPila
 {
 public:
-    NodoPila(const Aficionado& a, NodoPila* sig = NULL);
+    NodoPila(Aficionado* a = NULL, NodoPila* sig = NULL);
     ~NodoPila();
 
 private:
-	Aficionado aficionado;
+	Aficionado* aficionado;
     NodoPila* siguiente;
     friend class Pila;
+
 };
 
 typedef NodoPila* pnodoPila;
