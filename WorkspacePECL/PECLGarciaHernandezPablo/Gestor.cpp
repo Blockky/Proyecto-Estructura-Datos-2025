@@ -20,6 +20,15 @@ void Gestor::genera10Aficionados(){
 void Gestor::muestraAficionados(){
     pila_aficionados.mostrar();
 }
+void Gestor::borraAficionadosPila(){
+	int n_aficionados = pila_aficionados.contador;
+	while(n_aficionados>0)
+	pila_aficionados.extraer();
+}
+void Gestor::encolarAficionados()
+{
+	
+}
 Gestor::~Gestor()
 {
 }

@@ -7,7 +7,7 @@ Cola::Cola()
 	
 }
 
-void Cola::insertar(Aficionado a)
+void Cola::insertar(Aficionado* a)
 {
 	pnodoCola nuevo;
 	nuevo = new NodoCola(a);
@@ -25,7 +25,7 @@ void Cola::mostrar()
 	cout <<"\tLos aficionados en la cola son: ";
 	while(aux){
 		cout <<"->";
-		aux->aficionado.mostrar();
+		aux->aficionado->mostrar();
 		aux = aux->siguiente;
 	}
 	
@@ -33,20 +33,20 @@ void Cola::mostrar()
 		
 }
 
-Aficionado Cola::eliminar()
+Aficionado* Cola::eliminar()//No se por que al ejecutar este metodo se acaba el programa
 {
+	if(!primero)
+		return NULL;
 	pnodoCola nodo;
 	nodo = primero;
-	Aficionado a = nodo->aficionado;
-	if(!nodo)
-		throw runtime_error("Cola vacia");
+	Aficionado* a = nodo->aficionado;
 	primero = nodo->siguiente;
 	delete nodo;
 	if(!primero)
-		ultimo  =NULL;
+		ultimo = NULL;
 	return a;
 }
-Aficionado Cola::verPrimero()
+Aficionado* Cola::verPrimero()
 {
 	return primero->aficionado;
 }

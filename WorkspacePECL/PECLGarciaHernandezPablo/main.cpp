@@ -63,10 +63,10 @@ int main(int argc, char** argv)
 			gestor.muestraAficionados();
 			break;
 		case 'C':
-			// gestor.borraAficionadosPila();
+			gestor.borraAficionadosPila();
 			break;
 		case 'D':
-			// gestor.encolarAficionados();
+			gestor.encolarAficionados();
 			break;
 		case 'E':
 			// gestor.muestraSociosCola();

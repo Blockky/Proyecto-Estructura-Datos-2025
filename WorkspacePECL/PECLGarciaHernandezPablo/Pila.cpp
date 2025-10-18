@@ -17,8 +17,6 @@ Aficionado* Pila::extraer()
 	pnodoPila nodo;
 	nodo = ultimo;
 	Aficionado* a = nodo-> aficionado;
-	if(ultimo)
-		throw runtime_error("Pila vacia");
 	ultimo = nodo->siguiente;
 	delete nodo;
 	return a;
