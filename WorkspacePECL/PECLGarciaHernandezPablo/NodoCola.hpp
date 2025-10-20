@@ -5,11 +5,11 @@ using namespace std;
 class NodoCola
 {
 public:
-	NodoCola(const Aficionado& a, NodoCola* sig = NULL);
+	NodoCola(Aficionado* a = NULL, NodoCola* sig = NULL);
 	~NodoCola();
 	
 private:
-	Aficionado aficionado;
+	Aficionado* aficionado;
 	NodoCola* siguiente;
 	
 	friend class Cola;

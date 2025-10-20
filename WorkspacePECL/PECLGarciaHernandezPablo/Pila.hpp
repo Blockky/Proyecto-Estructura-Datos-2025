@@ -6,14 +6,18 @@ class Pila
 public:
     Pila();
     ~Pila();
-	void insertar(Aficionado a);
-	Aficionado extraer();
-	Aficionado cima();
+	void insertar(Aficionado* a);
+	Aficionado* extraer();
+	Aficionado* cima();
 	void mostrar();
+    void acutualizarCuenta(int num);
+    
+    int contador;
 	
 private:
 	pnodoPila ultimo;
 
+    
 };
 
 #endif // PILA_HPP

@@ -1,10 +1,10 @@
-// #include "Gestor.hpp"
+#include "Gestor.hpp"
 #include <iostream>
 using namespace std;
 
 int main(int argc, char** argv)
 {
-	// Gestor gestor;
+	Gestor gestor;
 	char opcion;
 
 	do {
@@ -51,22 +51,22 @@ int main(int argc, char** argv)
 		cout << "\tIndique la opcion deseada: ";
 		cin >> opcion;
 		opcion = toupper(opcion);
-		// system("clear");
+		system("clear");
 		system("cls");
 
 		switch(opcion) {
 
 		case 'A':
-			// gestor.genera10Aficionados();
+			gestor.genera10Aficionados();
 			break;
 		case 'B':
-			// gestor.muestraAficionados();
+			gestor.muestraAficionados();
 			break;
 		case 'C':
-			// gestor.borraAficionadosPila();
+			gestor.borraAficionadosPila();
 			break;
 		case 'D':
-			// gestor.encolarAficionados();
+			gestor.encolarAficionados();
 			break;
 		case 'E':
 			// gestor.muestraSociosCola();

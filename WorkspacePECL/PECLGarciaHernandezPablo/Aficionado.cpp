@@ -1,15 +1,15 @@
 #include <Aficionado.hpp>
 
-Aficionado::Aficionado(int ID)
+Aficionado::Aficionado(int id)
 {
-		this->ID = ID;
-		this->socio = (rand()%2);
-		this->generarID();
+		this->llegada = (rand()%60);
+		this->socio = 1-(id%2);
+		this->ID = id;
 }
 
-int Aficionado::getID()
+int Aficionado::getLlegada()
 {
-	return this->ID;
+	return this->llegada;
 }
 
 bool Aficionado::esSocio()
@@ -17,29 +17,15 @@ bool Aficionado::esSocio()
 	return this->socio;
 }
 
-void Aficionado::setID(int ID)
-{
-	this->ID = ID;
-}
-
 void Aficionado::mostrar()
 {
 	string _socio = "El simpatizante";
 	if(socio){
 		_socio = "El socio";
-		cout << "\t" << setw(10) << socio << " con ID " << ID << " entró en el minuto " << llegada << endl;
 	}
+    cout << "\t" << setw(20) << _socio << " con ID " << this->ID << " entró en el minuto " << this->llegada << endl;
 }
 
-void Aficionado::generarID()
-{
-	for (int i = 0; i < 10; i++) {
-        int num = rand() % 10;
-        this->ID = ID + num;
-    }
-        
-}
 Aficionado::~Aficionado()
 {
 }
-
