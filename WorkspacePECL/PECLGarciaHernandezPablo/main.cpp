@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 
 		cout << "\n\t--------------------------------------------------------------"
 				"--------\n";
-		cout << "\tAficionados en la pila -> " << 0 /*gestor.AficionadosEnPila()*/
+		cout << "\tAficionados en la pila -> " << gestor.AficionadosEnPila()
 			 << "\n\tAficionados en las colas:\n \t\tSocios-> " << 0 /*gestor.SociosEnCola() */ << "\tSimpatizantes-> "
 			 << 0 /*gestor.SimpatizantesEnCola() */
 			 << " \n\tAficionados en la lista -> " << 0 /*gestor.AficionadosEnLista()*/
@@ -69,7 +69,7 @@ int main(int argc, char** argv)
 			gestor.encolarAficionados();
 			break;
 		case 'E':
-			// gestor.muestraSociosCola();
+			gestor.muestraSociosCola();
 			break;
 		case 'F':
 			// gestor.muestraSimpatizantesCola();

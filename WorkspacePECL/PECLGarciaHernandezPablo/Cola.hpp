@@ -15,6 +15,7 @@ public:
 	
 private:
 	pnodoCola primero,ultimo;
+
 };
 
 #endif // COLA_HPP

@@ -3,7 +3,8 @@
 Pila::Pila()
 {
 	ultimo = NULL;
-    contador = 0;
+    aficiEnPila = 0;
+	aficiEnColas = 0;
 }
 
 void Pila::insertar(Aficionado* a)
@@ -40,10 +41,6 @@ void Pila::mostrar()
 	}
 	
 	cout<<endl;
-}
-
-void Pila::acutualizarCuenta(int num){
-    contador += num;
 }
 
 Pila::~Pila()

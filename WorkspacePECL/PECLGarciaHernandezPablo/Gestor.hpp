@@ -11,10 +11,12 @@ class Gestor
 public:
     Gestor();
     
-    void genera10Aficionados();
-    void muestraAficionados();
-    void borraAficionadosPila();
-	void encolarAficionados();
+    void genera10Aficionados(); // A
+    void muestraAficionados();	// B
+    void borraAficionadosPila();	// C
+	void encolarAficionados();	// D
+	void muestraSociosCola();	// E
+	int AficionadosEnPila();
 	
     ~Gestor();
 

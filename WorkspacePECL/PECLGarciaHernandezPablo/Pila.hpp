@@ -10,9 +10,9 @@ public:
 	Aficionado* extraer();
 	Aficionado* cima();
 	void mostrar();
-    void acutualizarCuenta(int num);
     
-    int contador;
+    int aficiEnPila;
+	int aficiEnColas;
 	
 private:
 	pnodoPila ultimo;
