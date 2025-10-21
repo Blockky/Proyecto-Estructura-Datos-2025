@@ -16,6 +16,8 @@ public:
     void borraAficionadosPila();	// C
 	void encolarAficionados();	// D
 	void muestraSociosCola();	// E
+	void muestraSimpatizantesCola(); // F
+	void borraAficionadosColas(); // G
 	int AficionadosEnPila();
 	
     ~Gestor();

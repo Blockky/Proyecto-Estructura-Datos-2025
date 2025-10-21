@@ -54,6 +54,25 @@ void Gestor::muestraSociosCola()
 int Gestor::AficionadosEnPila(){
 	return pila_aficionados.aficiEnPila;
 }
+
+void Gestor::muestraSimpatizantesCola(){
+	cola_simpatizantes.mostrar();
+}
+
+void Gestor::borraAficionadosColas(){
+	int n = cola_socios.socios_cola;
+	int m = cola_simpatizantes.simpatizantes_cola;
+	while(n){
+		cola_socios.eliminar();
+		n--;
+	}
+	cola_socios.socios_cola = 0;
+	while(m){
+		cola_simpatizantes.eliminar();
+		m--;
+	}
+	cola_simpatizantes.simpatizantes_cola = 0;
+}
 Gestor::~Gestor()
 {
 }

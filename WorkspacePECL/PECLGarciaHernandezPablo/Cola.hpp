@@ -12,6 +12,8 @@ public:
 	Aficionado* eliminar();
 	void mostrar();
 	Aficionado* verPrimero();
+	int socios_cola;
+	int simpatizantes_cola;
 	
 private:
 	pnodoCola primero,ultimo;

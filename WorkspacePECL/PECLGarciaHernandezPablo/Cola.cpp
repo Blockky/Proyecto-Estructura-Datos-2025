@@ -33,7 +33,7 @@ void Cola::mostrar()
 		
 }
 
-Aficionado* Cola::eliminar()//No se por que al ejecutar este metodo se acaba el programa
+Aficionado* Cola::eliminar()
 {
 	if(!primero)
 		return NULL;
