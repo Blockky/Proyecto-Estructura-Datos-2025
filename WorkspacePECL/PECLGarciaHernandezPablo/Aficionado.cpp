@@ -6,26 +6,26 @@ Aficionado::Aficionado(int id)
 		this->socio = 1-(id%2);
 		this->ID = id;
 }
-
 int Aficionado::getLlegada()
 {
 	return this->llegada;
 }
-
+int Aficionado::getID()
+{
+	return this->ID;
+}
 bool Aficionado::esSocio()
 {
 	return this->socio;
 }
-
 void Aficionado::mostrar()
 {
 	string _socio = "El simpatizante";
 	if(socio){
 		_socio = "El socio";
 	}
-    cout << "\t" << setw(20) << _socio << " con ID " << this->ID << " entró en el minuto " << this->llegada << endl;
+    cout << "\t" << setw(20) << _socio << " con ID " << this->ID << " entro en el minuto " << this->llegada << endl;
 }
-
 Aficionado::~Aficionado()
 {
 }

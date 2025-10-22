@@ -1,5 +1,4 @@
 #include "Aficionado.hpp"
-
 #include <iostream>
 
 class NodoPila
@@ -12,7 +11,6 @@ private:
 	Aficionado* aficionado;
     NodoPila* siguiente;
     friend class Pila;
-
 };
 
 typedef NodoPila* pnodoPila;

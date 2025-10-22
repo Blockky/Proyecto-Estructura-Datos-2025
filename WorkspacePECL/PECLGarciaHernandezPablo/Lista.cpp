@@ -15,9 +15,9 @@ void Lista::insertar(Aficionado* a){
 	if(!primero)
 		primero = nuevo;
 }
-Aficionado Lista::buscar(){
+/* Aficionado Lista::buscar(){
 	
-}
+} */
 Lista::~Lista()
 {
 }

@@ -3,10 +3,7 @@
 Pila::Pila()
 {
 	ultimo = NULL;
-    aficiEnPila = 0;
-	aficiEnColas = 0;
 }
-
 void Pila::insertar(Aficionado* a)
 {
 	pnodoPila nuevo;
@@ -28,7 +25,6 @@ Aficionado* Pila::cima()
 		return 0;
 	return ultimo->aficionado;
 }
-
 void Pila::mostrar()
 {
 	pnodoPila aux = this->ultimo;
@@ -39,10 +35,19 @@ void Pila::mostrar()
 		aux->aficionado->mostrar();
 		aux=aux->siguiente;
 	}
-	
 	cout<<endl;
 }
-
+bool Pila::idInPila(int i){
+	int n;
+	pnodoPila aux = this->ultimo;
+	while(aux)
+	{
+		n = aux->aficionado->getID();
+		if(n==i) return 1;
+		aux=aux->siguiente;
+	}
+	return 0;
+}
 Pila::~Pila()
 {
 	pnodoPila aux;

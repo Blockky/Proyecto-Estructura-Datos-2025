@@ -2,76 +2,77 @@
 
 Gestor::Gestor()
 {
-   
+   	afiEnPila = 0;
+	socEnCola = 0;
+	simEnCola = 0;
 }
 void Gestor::genera10Aficionados(){
-    int nEnPila = pila_aficionados.aficiEnPila;
-	int nEnColas = pila_aficionados.aficiEnColas;
-	int n = nEnPila + nEnColas;
+	int n = 1;
+	while (pila_aficionados.idInPila(n) || cola_simpatizantes.idInCola(n) || cola_socios.idInCola(n)){
+		n += 10;
+	}
     int lista[10];
-    for(int i = 1; i < 11; ++i) {
-        lista[i-1] = i+n;
+    for(int i = 0; i < 10; ++i) {
+        lista[i] = i+n;
     }
     random_shuffle(lista, lista + 10);
 	for(int i = 0; i<10; ++i){
         Aficionado* a = new Aficionado(lista[i]);
         pila_aficionados.insertar(a);
     }
-    pila_aficionados.aficiEnPila += 10;
+    afiEnPila += 10;
 }
 void Gestor::muestraAficionados(){
     pila_aficionados.mostrar();
 }
 void Gestor::borraAficionadosPila(){
-	int n = pila_aficionados.aficiEnPila;
-	while(n){
-		pila_aficionados.extraer();
-		n--;
+	while(afiEnPila){
+		Aficionado* a = pila_aficionados.extraer();
+		delete(a);
+		afiEnPila--;
 	}
-	pila_aficionados.aficiEnPila = 0;	
 }
 void Gestor::encolarAficionados()
 {
-	int n = pila_aficionados.aficiEnPila;
-	int m = pila_aficionados.aficiEnColas;
-	while(n){
+	while(afiEnPila){
 		Aficionado* a = pila_aficionados.extraer();
 		if (a->esSocio() == 1){
 			cola_socios.insertar(a);
+			socEnCola++;
 		} else {
 			cola_simpatizantes.insertar(a);
+			simEnCola++;
 		}
-		n--;
-		m++;
+		afiEnPila--;
 	}
-	pila_aficionados.aficiEnPila = n;
-	pila_aficionados.aficiEnColas = m;
 }
 void Gestor::muestraSociosCola()
 {
 	cola_socios.mostrar();
 }
 int Gestor::AficionadosEnPila(){
-	return pila_aficionados.aficiEnPila;
+	return afiEnPila;
 }
-
+int Gestor::SociosEnCola(){
+	return socEnCola;
+}
+int Gestor::SimpatizantesEnCola(){
+	return simEnCola;
+}
 void Gestor::muestraSimpatizantesCola(){
 	cola_simpatizantes.mostrar();
 }
-
 void Gestor::borraAficionadosColas(){
-	int n = cola_socios.socios_cola;
-	int m = cola_simpatizantes.simpatizantes_cola;
-	while(n){
-		cola_socios.eliminar();
-		n--;
+	while(socEnCola){
+		Aficionado* a = cola_socios.eliminar();
+		delete(a);
+		socEnCola--;
 	}
-	cola_socios.socios_cola = 0;
-	while(m){
-		cola_simpatizantes.eliminar();
-		m--;
+	while(simEnCola){
+		Aficionado* a = cola_simpatizantes.eliminar();
+		delete(a);
+		simEnCola--;
 	}
-	cola_simpatizantes.simpatizantes_cola = 0;
 }
 Gestor::~Gestor()
 {

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
+
 class Aficionado
 {
 private:
@@ -13,12 +14,12 @@ private:
 
 public:
 	Aficionado(int id);   
- 
     ~Aficionado();
 	void setLlegada(int llegada);
 	void mostrar();
 	bool esSocio();
 	int getLlegada();
+	int getID();
 };
 
 #endif // AFICIONADO_HPP

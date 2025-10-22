@@ -11,9 +11,7 @@ public:
 private:
 	Aficionado* aficionado;
 	NodoCola* siguiente;
-	
 	friend class Cola;
-	
 };
 
 typedef NodoCola* pnodoCola;

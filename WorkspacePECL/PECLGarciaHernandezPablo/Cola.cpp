@@ -4,9 +4,7 @@ Cola::Cola()
 {
 	primero = NULL;
 	ultimo = NULL;
-	
 }
-
 void Cola::insertar(Aficionado* a)
 {
 	pnodoCola nuevo;
@@ -18,7 +16,6 @@ void Cola::insertar(Aficionado* a)
 	if(!primero)
 		primero = nuevo;
 }
-
 void Cola::mostrar()
 {
 	pnodoCola aux = primero;
@@ -28,11 +25,8 @@ void Cola::mostrar()
 		aux->aficionado->mostrar();
 		aux = aux->siguiente;
 	}
-	
 	cout<<endl;
-		
 }
-
 Aficionado* Cola::eliminar()
 {
 	if(!primero)
@@ -50,9 +44,19 @@ Aficionado* Cola::verPrimero()
 {
 	return primero->aficionado;
 }
+bool Cola::idInCola(int i){
+	int n;
+	pnodoCola aux = this->primero;
+	while(aux)
+	{
+		n = aux->aficionado->getID();
+		if(n==i) return 1;
+		aux=aux->siguiente;
+	}
+	return 0;
+}
 Cola::~Cola()
 {
 	while(primero)
 		eliminar();
 }
-

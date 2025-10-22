@@ -12,8 +12,8 @@ int main(int argc, char** argv)
 		cout << "\n\t--------------------------------------------------------------"
 				"--------\n";
 		cout << "\tAficionados en la pila -> " << gestor.AficionadosEnPila()
-			 << "\n\tAficionados en las colas:\n \t\tSocios-> " << 0 /*gestor.SociosEnCola() */ << "\tSimpatizantes-> "
-			 << 0 /*gestor.SimpatizantesEnCola() */
+			 << "\n\tAficionados en las colas:\n \t\tSocios-> " << gestor.SociosEnCola() << "\tSimpatizantes-> "
+			 <<  gestor.SimpatizantesEnCola()
 			 << " \n\tAficionados en la lista -> " << 0 /*gestor.AficionadosEnLista()*/
 			 << "\n\tAficionados en el arbol -> " << 0							  /*gestor.AficionadosEnArbol()*/
 			 << "\n";

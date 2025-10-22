@@ -8,9 +8,16 @@ using namespace std;
 
 class Gestor
 {
+private:
+	Pila pila_aficionados;
+	Cola cola_simpatizantes;
+	Cola cola_socios;
+	int afiEnPila;
+	int socEnCola;
+	int simEnCola;
+	
 public:
     Gestor();
-    
     void genera10Aficionados(); // A
     void muestraAficionados();	// B
     void borraAficionadosPila();	// C
@@ -19,13 +26,9 @@ public:
 	void muestraSimpatizantesCola(); // F
 	void borraAficionadosColas(); // G
 	int AficionadosEnPila();
-	
+	int SociosEnCola();
+	int SimpatizantesEnCola();
     ~Gestor();
-
-    Pila pila_aficionados = Pila();
-	Cola cola_simpatizantes = Cola();
-	Cola cola_socios = Cola();
-    
 };
 
 #endif // GESTOR_HPP
