@@ -13,12 +13,10 @@ void Lista::insertar_orden(Aficionado* a){
 	if(!primero){
 		primero = ptr;
 		ultimo = ptr;
-		return;
 	} else {
 		if (llegada < primero->aficionado->getLlegada()){
 			ptr->siguiente = primero;
 			primero = ptr;
-			return;
 		} else {
 			pnodoLista aux = primero;
 			while (aux->siguiente && 
