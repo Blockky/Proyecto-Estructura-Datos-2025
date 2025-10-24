@@ -15,7 +15,6 @@ private:
 public:
 	Aficionado(int id);   
     ~Aficionado();
-	void setLlegada(int llegada);
 	void mostrar();
 	bool esSocio();
 	int getLlegada();

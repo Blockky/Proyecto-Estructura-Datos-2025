@@ -2,6 +2,7 @@
 #define GESTOR_HPP
 #include "Pila.hpp"
 #include "Cola.hpp"
+#include "Lista.hpp"
 #include "Aficionado.hpp"
 #include <algorithm>
 using namespace std;
@@ -12,9 +13,12 @@ private:
 	Pila pila_aficionados;
 	Cola cola_simpatizantes;
 	Cola cola_socios;
+	Lista lista_aficionados;
+	
 	int afiEnPila;
 	int socEnCola;
 	int simEnCola;
+	int afiEnLista;
 	
 public:
     Gestor();
@@ -25,6 +29,8 @@ public:
 	void muestraSociosCola();	// E
 	void muestraSimpatizantesCola(); // F
 	void borraAficionadosColas(); // G
+	void enlistarAficionados();	// H
+	void buscarAficionados();
 	int AficionadosEnPila();
 	int SociosEnCola();
 	int SimpatizantesEnCola();

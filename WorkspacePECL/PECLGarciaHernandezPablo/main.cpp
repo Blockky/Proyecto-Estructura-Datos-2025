@@ -78,10 +78,10 @@ int main(int argc, char** argv)
 			gestor.borraAficionadosColas();
 			break;
 		case 'H':
-			// gestor.enlistarAficionados();
+			gestor.enlistarAficionados();
 			break;
 		case 'I':
-			// gestor.buscarAficionados();
+			gestor.buscarAficionados();
 			break;
 		case 'J':
 			// gestor.reiniciar();

@@ -6,10 +6,9 @@ class Lista
 public:
     Lista();
     ~Lista();
-	void insertar(Aficionado* a);
+	void insertar_orden(Aficionado* a);
 	Aficionado* buscar();
-	
-	int aficionados_lista;
+	void mostrar();
 	
 private:
 	pnodoLista ultimo,primero;
