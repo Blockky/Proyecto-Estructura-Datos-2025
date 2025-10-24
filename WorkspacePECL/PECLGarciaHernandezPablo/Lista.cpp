@@ -7,25 +7,30 @@ Lista::Lista()
 }
 void Lista::insertar_orden(Aficionado* a){
 	int llegada = a->getLlegada();
-	pnodoLista ptr, aux;
-	aux = new NodoLista(NULL);
+	pnodoLista ptr;
+	
 	ptr = new NodoLista(a);
 	if(!primero){
 		primero = ptr;
 		ultimo = ptr;
+		return;
 	} else {
 		if (llegada < primero->aficionado->getLlegada()){
 			ptr->siguiente = primero;
 			primero = ptr;
+			return;
 		} else {
-			primero = aux;
+			pnodoLista aux = primero;
 			while (aux->siguiente && 
 				   aux->siguiente->aficionado->getLlegada() < llegada){
-				aux->siguiente = aux;
+				 aux = aux->siguiente;
 		}
-		aux->siguiente = ptr->siguiente;
-		ptr = aux->siguiente;
+		 ptr->siguiente = aux->siguiente;
+		aux->siguiente = ptr;
 		}
+		
+		if (ptr->siguiente == NULL) ultimo = ptr;
+		
 	}
 }
 void Lista::mostrar()
