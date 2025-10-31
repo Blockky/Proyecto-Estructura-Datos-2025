@@ -9,12 +9,13 @@ public:
     ~Pila();
 	void insertar(Aficionado* a);
 	Aficionado* extraer();
-	Aficionado* cima();
 	void mostrar();
 	bool idInPila(int i);
+    int getLongitud();
 	
 private:
 	pnodoPila ultimo;
+    int longitud;
 };
 
 #endif // PILA_HPP

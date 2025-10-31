@@ -10,7 +10,8 @@ Gestor::Gestor()
 void Gestor::genera10Aficionados()
 {
     int n = 1;
-    while(pila_aficionados.idInPila(n) || cola_simpatizantes.idInCola(n) || cola_socios.idInCola(n)) {
+    while(pila_aficionados.idInPila(n) || cola_simpatizantes.idInCola(n) || cola_socios.idInCola(n) || 
+    lista_aficionados.idInLista(n)) {
         n += 10;
     }
     int lista[10];
@@ -24,7 +25,10 @@ void Gestor::genera10Aficionados()
     }
     afiEnPila += 10;
 }
-void Gestor::muestraAficionados() { pila_aficionados.mostrar(); }
+void Gestor::muestraAficionados()
+{
+    pila_aficionados.mostrar();
+}
 void Gestor::borraAficionadosPila()
 {
     while(afiEnPila) {
@@ -47,20 +51,23 @@ void Gestor::encolarAficionados()
         afiEnPila--;
     }
 }
-void Gestor::muestraSociosCola() { cola_socios.mostrar(); }
-int Gestor::AficionadosEnPila() { return afiEnPila; }
-int Gestor::SociosEnCola() { return socEnCola; }
-int Gestor::SimpatizantesEnCola() { return simEnCola; }
-void Gestor::muestraSimpatizantesCola() { cola_simpatizantes.mostrar(); }
+void Gestor::muestraSociosCola()
+{
+    cola_socios.mostrar();
+}
+void Gestor::muestraSimpatizantesCola()
+{
+    cola_simpatizantes.mostrar();
+}
 void Gestor::borraAficionadosColas()
 {
     while(socEnCola) {
-        Aficionado* a = cola_socios.eliminar();
+        Aficionado* a = cola_socios.extraer();
         delete(a);
         socEnCola--;
     }
     while(simEnCola) {
-        Aficionado* a = cola_simpatizantes.eliminar();
+        Aficionado* a = cola_simpatizantes.extraer();
         delete(a);
         simEnCola--;
     }
@@ -68,21 +75,26 @@ void Gestor::borraAficionadosColas()
 void Gestor::enlistarAficionados()
 {
     while(socEnCola) {
-        Aficionado* a;
-        a = cola_socios.eliminar();
+        Aficionado* a = cola_socios.extraer();
         lista_aficionados.insertar_orden(a);
-        delete(a);
         socEnCola--;
         afiEnLista++;
     }
     while(simEnCola) {
-        Aficionado* b;
-        b = cola_simpatizantes.eliminar();
+        Aficionado* b = cola_simpatizantes.extraer();
         lista_aficionados.insertar_orden(b);
-        delete(b);
         simEnCola--;
         afiEnLista++;
     }
 }
-void Gestor::buscarAficionados() { lista_aficionados.mostrar(); }
-Gestor::~Gestor() {}
+void Gestor::buscarAficionados()
+{
+    lista_aficionados.mostrar();
+}
+
+int Gestor::AficionadosEnPila(){return afiEnPila;}
+int Gestor::SociosEnCola(){return socEnCola;}
+int Gestor::SimpatizantesEnCola(){return simEnCola;}
+int Gestor::AficionadosEnLista(){return afiEnLista;}
+
+Gestor::~Gestor(){}

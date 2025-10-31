@@ -9,7 +9,8 @@ public:
 	void insertar_orden(Aficionado* a);
 	Aficionado* buscar();
 	void mostrar();
-	
+	bool idInLista(int i);
+    
 private:
 	pnodoLista ultimo,primero;
 };

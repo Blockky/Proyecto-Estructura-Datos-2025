@@ -34,6 +34,7 @@ public:
 	int AficionadosEnPila();
 	int SociosEnCola();
 	int SimpatizantesEnCola();
+    int AficionadosEnLista();
     ~Gestor();
 };
 

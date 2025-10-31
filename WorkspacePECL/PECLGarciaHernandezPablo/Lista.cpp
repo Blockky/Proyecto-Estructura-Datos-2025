@@ -8,27 +8,32 @@ Lista::Lista()
 void Lista::insertar_orden(Aficionado* a)
 {
     int llegada = a->getLlegada();
-    pnodoLista ptr;
-
+    bool socio = a->esSocio();
+    pnodoLista ptr = new NodoLista();
     ptr = new NodoLista(a);
     if(!primero) {
         primero = ptr;
         ultimo = ptr;
-    } else {
-        if(llegada < primero->aficionado->getLlegada()) {
-            ptr->siguiente = primero;
-            primero = ptr;
-        } else {
-            pnodoLista aux = primero;
-            while(aux->siguiente && aux->siguiente->aficionado->getLlegada() < llegada) {
-                aux = aux->siguiente;
-            }
-            ptr->siguiente = aux->siguiente;
-            aux->siguiente = ptr;
+    } else if(socio && llegada < primero->aficionado->getLlegada()){
+        ptr->siguiente = primero;
+        primero = ptr;
+    } else if(socio){
+        pnodoLista aux = primero;
+        while(aux->siguiente && aux->siguiente->aficionado->esSocio() && llegada > aux->siguiente->aficionado->getLlegada()){
+            aux = aux->siguiente;
         }
-
-        if(ptr->siguiente == NULL)
-            ultimo = ptr;
+        ptr->siguiente = aux->siguiente;
+        aux->siguiente = ptr;
+    } else {
+        pnodoLista aux = primero;
+        while(aux->siguiente && aux->siguiente->aficionado->esSocio()){
+            aux = aux->siguiente;
+        }
+        while(aux->siguiente && llegada > aux->siguiente->aficionado->getLlegada()){
+            aux = aux->siguiente;
+        }
+        ptr->siguiente = aux->siguiente;
+        aux->siguiente = ptr;
     }
 }
 void Lista::mostrar()
@@ -41,5 +46,17 @@ void Lista::mostrar()
         aux = aux->siguiente;
     }
     cout << endl;
+}
+bool Lista::idInLista(int i)
+{
+    int n;
+	pnodoLista aux = this->primero;
+	while(aux)
+	{
+		n = aux->aficionado->getID();
+		if(n==i) return 1;
+		aux=aux->siguiente;
+	}
+	return 0;
 }
 Lista::~Lista() {}

@@ -8,13 +8,13 @@ public:
     Cola();
     ~Cola();
 	void insertar(Aficionado* a);
-	Aficionado* eliminar();
+	Aficionado* extraer();
 	void mostrar();
-	Aficionado* verPrimero();
 	bool idInCola(int i);
 	
 private:
-	pnodoCola primero,ultimo;
+	pnodoCola primero, ultimo;
+    int longitud;
 };
 
 #endif // COLA_HPP

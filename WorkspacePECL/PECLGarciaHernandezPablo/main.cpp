@@ -14,7 +14,7 @@ int main(int argc, char** argv)
 		cout << "\tAficionados en la pila -> " << gestor.AficionadosEnPila()
 			 << "\n\tAficionados en las colas:\n \t\tSocios-> " << gestor.SociosEnCola() << "\tSimpatizantes-> "
 			 <<  gestor.SimpatizantesEnCola()
-			 << " \n\tAficionados en la lista -> " << 0 /*gestor.AficionadosEnLista()*/
+			 << " \n\tAficionados en la lista -> " << gestor.AficionadosEnLista()
 			 << "\n\tAficionados en el arbol -> " << 0							  /*gestor.AficionadosEnArbol()*/
 			 << "\n";
 		cout << "\t----------------------------------------------------------------"
@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 		cin >> opcion;
 		opcion = toupper(opcion);
 		system("clear");
-		system("cls");
+		// system("cls");
 
 		switch(opcion) {
 

@@ -9,6 +9,7 @@ void Pila::insertar(Aficionado* a)
 	pnodoPila nuevo;
 	nuevo = new NodoPila(a,ultimo);
 	ultimo = nuevo;
+    longitud++;
 }
 Aficionado* Pila::extraer()
 {
@@ -18,12 +19,7 @@ Aficionado* Pila::extraer()
 	ultimo = nodo->siguiente;
 	delete nodo;
 	return a;
-}
-Aficionado* Pila::cima()
-{
-	if(!ultimo)
-		return 0;
-	return ultimo->aficionado;
+    longitud--;
 }
 void Pila::mostrar()
 {
@@ -33,7 +29,7 @@ void Pila::mostrar()
 	{
 		cout << "-> ";
 		aux->aficionado->mostrar();
-		aux=aux->siguiente;
+		aux = aux->siguiente;
 	}
 	cout<<endl;
 }
@@ -56,6 +52,7 @@ Pila::~Pila()
 		aux = ultimo;
 		ultimo = ultimo->siguiente;
 		delete aux;
+        longitud--;
 	}
 }
 
