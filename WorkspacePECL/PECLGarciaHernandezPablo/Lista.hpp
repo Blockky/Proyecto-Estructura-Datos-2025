@@ -7,7 +7,7 @@ public:
     Lista();
     ~Lista();
 	void insertar_orden(Aficionado* a);
-	Aficionado* buscar();
+	void buscar();
 	void mostrar();
 	bool idInLista(int i);
     

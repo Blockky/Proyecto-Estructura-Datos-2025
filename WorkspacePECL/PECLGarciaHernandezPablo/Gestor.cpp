@@ -89,7 +89,8 @@ void Gestor::enlistarAficionados()
 }
 void Gestor::buscarAficionados()
 {
-    lista_aficionados.mostrar();
+	lista_aficionados.mostrar();
+	lista_aficionados.buscar();
 }
 
 int Gestor::AficionadosEnPila(){return afiEnPila;}
