@@ -4,44 +4,40 @@ Cola::Cola()
 {
 	primero = NULL;
 	ultimo = NULL;
+    longitud = 0;
 }
 void Cola::insertar(Aficionado* a)
 {
 	pnodoCola nuevo;
 	nuevo = new NodoCola(a);
-	if (ultimo)
-		ultimo->siguiente = nuevo;
+	if (ultimo) ultimo->siguiente = nuevo;
 	ultimo = nuevo;
-	
-	if(!primero)
-		primero = nuevo;
+	if(!primero) primero = nuevo;
     longitud++;
 }
 void Cola::mostrar()
 {
 	pnodoCola aux = primero;
-	cout <<"\tLos aficionados en la cola son: " << endl;
+	cout <<"\tLos aficionados en la cola son:" << endl;
 	while(aux)
     {
-		cout <<"-> ";
+		cout << "\t->  ";
 		aux->aficionado->mostrar();
 		aux = aux->siguiente;
 	}
-	cout<<endl;
+	cout << endl;
 }
 Aficionado* Cola::extraer()
 {
-	if(!primero)
-		return NULL;
+	if(!primero) return NULL;
 	pnodoCola nodo;
 	nodo = primero;
 	Aficionado* a = nodo->aficionado;
 	primero = nodo->siguiente;
 	delete nodo;
-	if(!primero)
-		ultimo = NULL;
+    if(!primero) ultimo = NULL;
+    this->longitud--;
 	return a;
-    longitud--;
 }
 bool Cola::idInCola(int i)
 {
@@ -55,8 +51,16 @@ bool Cola::idInCola(int i)
 	}
 	return 0;
 }
+int Cola::getLongitud(){
+    return this->longitud;
+}
 Cola::~Cola()
 {
+    Aficionado* a;
 	while(primero)
-		extraer();
+	{
+		a = extraer();
+        delete(a);
+        this->longitud--;
+	}
 }

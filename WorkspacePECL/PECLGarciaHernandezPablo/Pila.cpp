@@ -3,37 +3,40 @@
 Pila::Pila()
 {
 	ultimo = NULL;
+    longitud = 0;
 }
 void Pila::insertar(Aficionado* a)
 {
 	pnodoPila nuevo;
 	nuevo = new NodoPila(a,ultimo);
 	ultimo = nuevo;
-    longitud++;
+    this->longitud++;
 }
 Aficionado* Pila::extraer()
 {
+    if(!ultimo) return NULL;
 	pnodoPila nodo;
 	nodo = ultimo;
-	Aficionado* a = nodo-> aficionado;
+	Aficionado* a = nodo->aficionado;
 	ultimo = nodo->siguiente;
 	delete nodo;
+    this->longitud--;
 	return a;
-    longitud--;
 }
 void Pila::mostrar()
 {
 	pnodoPila aux = this->ultimo;
-	cout <<"\tLa pila de aficionados es: " << endl;
+	cout << "\tLa pila de aficionados es:" << endl;
 	while(aux)
 	{
-		cout << "-> ";
+		cout << "\t->  ";
 		aux->aficionado->mostrar();
 		aux = aux->siguiente;
 	}
 	cout<<endl;
 }
-bool Pila::idInPila(int i){
+bool Pila::idInPila(int i)
+{
 	int n;
 	pnodoPila aux = this->ultimo;
 	while(aux)
@@ -44,15 +47,17 @@ bool Pila::idInPila(int i){
 	}
 	return 0;
 }
+int Pila::getLongitud()
+{
+    return this->longitud;
+}
 Pila::~Pila()
 {
-	pnodoPila aux;
-	while(!ultimo)
+    Aficionado* a;
+	while(ultimo)
 	{
-		aux = ultimo;
-		ultimo = ultimo->siguiente;
-		delete aux;
-        longitud--;
+		a = extraer();
+        delete(a);
+        this->longitud--;
 	}
 }
-

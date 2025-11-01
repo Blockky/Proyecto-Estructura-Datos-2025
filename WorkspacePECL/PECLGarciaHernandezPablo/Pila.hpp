@@ -6,13 +6,13 @@ class Pila
 {
 public:
     Pila();
-    ~Pila();
 	void insertar(Aficionado* a);
 	Aficionado* extraer();
 	void mostrar();
 	bool idInPila(int i);
     int getLongitud();
-	
+    ~Pila();
+
 private:
 	pnodoPila ultimo;
     int longitud;

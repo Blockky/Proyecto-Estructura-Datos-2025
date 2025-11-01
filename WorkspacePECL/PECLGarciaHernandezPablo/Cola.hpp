@@ -6,12 +6,13 @@ class Cola
 {
 public:
     Cola();
-    ~Cola();
 	void insertar(Aficionado* a);
 	Aficionado* extraer();
 	void mostrar();
 	bool idInCola(int i);
-	
+    int getLongitud();
+    ~Cola();
+    
 private:
 	pnodoCola primero, ultimo;
     int longitud;

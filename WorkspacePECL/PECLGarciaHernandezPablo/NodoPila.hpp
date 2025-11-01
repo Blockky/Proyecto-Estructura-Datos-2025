@@ -1,5 +1,4 @@
 #include "Aficionado.hpp"
-#include <iostream>
 
 class NodoPila
 {

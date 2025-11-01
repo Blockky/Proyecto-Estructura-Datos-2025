@@ -1,7 +1,4 @@
-#include <iostream>
 #include "Aficionado.hpp"
-
-using namespace std;
 
 class NodoLista
 {
@@ -12,9 +9,7 @@ public:
 private:
 	Aficionado* aficionado;
 	NodoLista* siguiente;
-	
 	friend class Lista;
-	
 };
 
 typedef NodoLista* pnodoLista;

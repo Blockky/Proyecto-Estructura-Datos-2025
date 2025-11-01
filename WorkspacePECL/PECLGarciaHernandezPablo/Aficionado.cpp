@@ -2,30 +2,29 @@
 
 Aficionado::Aficionado(int id)
 {
-		this->llegada = (rand()%60);
-		this->socio = 1-(id%2);
-		this->ID = id;
+    this->llegada = (rand() % 60);
+    this->socio = 1 - (id % 2);
+    this->ID = id;
 }
-int Aficionado::getLlegada()
+int Aficionado::getLlegada() 
 {
-	return this->llegada;
+    return this->llegada;
 }
 int Aficionado::getID()
 {
-	return this->ID;
+    return this->ID;
 }
 bool Aficionado::esSocio()
 {
-	return this->socio;
+    return this->socio;
 }
 void Aficionado::mostrar()
 {
-	string _socio = "El simpatizante";
-	if(socio){
-		_socio = "El socio";
-	}
-    cout << "\t" << setw(20) << _socio << " con ID " << this->ID << " entro en el minuto " << this->llegada << endl;
+    string _socio = "El simpatizante";
+    if(socio) {
+        _socio = "El socio";
+    }
+    cout << setw(15) << _socio << " con ID " << setw(2) << this->ID << " entro en el minuto " << setw(2)
+         << this->llegada << endl;
 }
-Aficionado::~Aficionado()
-{
-}
+Aficionado::~Aficionado(){}

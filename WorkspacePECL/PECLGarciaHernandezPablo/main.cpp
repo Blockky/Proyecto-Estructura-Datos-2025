@@ -51,8 +51,8 @@ int main(int argc, char** argv)
 		cout << "\tIndique la opcion deseada: ";
 		cin >> opcion;
 		opcion = toupper(opcion);
-		system("clear");
-		// system("cls");
+		//system("clear");
+		system("cls");
 
 		switch(opcion) {
 
@@ -84,7 +84,7 @@ int main(int argc, char** argv)
 			gestor.buscarAficionados();
 			break;
 		case 'J':
-			// gestor.reiniciar();
+			gestor.reiniciar();
 			break;
 		case 'K':
 			//...;

@@ -6,12 +6,6 @@ using namespace std;
 
 class Aficionado
 {
-private:
-    int ID;
-    bool socio; // 1: Socio, 0: Simpatizante
-    int llegada;	
-	friend class Pila;
-
 public:
 	Aficionado(int id);   
     ~Aficionado();
@@ -19,6 +13,12 @@ public:
 	bool esSocio();
 	int getLlegada();
 	int getID();
+    
+private:
+    int ID;
+    bool socio; // 1: Socio, 0: Simpatizante
+    int llegada;	
+	friend class Pila;
 };
 
 #endif // AFICIONADO_HPP

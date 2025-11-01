@@ -9,17 +9,6 @@ using namespace std;
 
 class Gestor
 {
-private:
-	Pila pila_aficionados;
-	Cola cola_simpatizantes;
-	Cola cola_socios;
-	Lista lista_aficionados;
-	
-	int afiEnPila;
-	int socEnCola;
-	int simEnCola;
-	int afiEnLista;
-	
 public:
     Gestor();
     void genera10Aficionados(); // A
@@ -30,12 +19,19 @@ public:
 	void muestraSimpatizantesCola(); // F
 	void borraAficionadosColas(); // G
 	void enlistarAficionados();	// H
-	void buscarAficionados();
+	void buscarAficionados();   // I
+    void reiniciar();           // J
 	int AficionadosEnPila();
 	int SociosEnCola();
 	int SimpatizantesEnCola();
     int AficionadosEnLista();
     ~Gestor();
+    
+private:
+	Pila pila_aficionados;
+	Cola cola_simpatizantes;
+	Cola cola_socios;
+	Lista lista_aficionados;
 };
 
 #endif // GESTOR_HPP

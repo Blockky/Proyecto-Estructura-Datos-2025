@@ -1,12 +1,7 @@
 #include "Gestor.hpp"
 
-Gestor::Gestor()
-{
-    afiEnPila = 0;
-    socEnCola = 0;
-    simEnCola = 0;
-    afiEnLista = 0;
-}
+Gestor::Gestor(){}
+
 void Gestor::genera10Aficionados()
 {
     int n = 1;
@@ -23,7 +18,6 @@ void Gestor::genera10Aficionados()
         Aficionado* a = new Aficionado(lista[i]);
         pila_aficionados.insertar(a);
     }
-    afiEnPila += 10;
 }
 void Gestor::muestraAficionados()
 {
@@ -31,24 +25,20 @@ void Gestor::muestraAficionados()
 }
 void Gestor::borraAficionadosPila()
 {
-    while(afiEnPila) {
+    while(pila_aficionados.getLongitud()) {
         Aficionado* a = pila_aficionados.extraer();
         delete(a);
-        afiEnPila--;
     }
 }
 void Gestor::encolarAficionados()
 {
-    while(afiEnPila) {
+    while(pila_aficionados.getLongitud()) {
         Aficionado* a = pila_aficionados.extraer();
         if(a->esSocio() == 1) {
             cola_socios.insertar(a);
-            socEnCola++;
         } else {
             cola_simpatizantes.insertar(a);
-            simEnCola++;
         }
-        afiEnPila--;
     }
 }
 void Gestor::muestraSociosCola()
@@ -61,41 +51,53 @@ void Gestor::muestraSimpatizantesCola()
 }
 void Gestor::borraAficionadosColas()
 {
-    while(socEnCola) {
+    while(cola_socios.getLongitud()) {
         Aficionado* a = cola_socios.extraer();
         delete(a);
-        socEnCola--;
     }
-    while(simEnCola) {
+    while(cola_simpatizantes.getLongitud()) {
         Aficionado* a = cola_simpatizantes.extraer();
         delete(a);
-        simEnCola--;
     }
 }
 void Gestor::enlistarAficionados()
 {
-    while(socEnCola) {
+    while(cola_socios.getLongitud()) {
         Aficionado* a = cola_socios.extraer();
         lista_aficionados.insertar_orden(a);
-        socEnCola--;
-        afiEnLista++;
     }
-    while(simEnCola) {
-        Aficionado* b = cola_simpatizantes.extraer();
-        lista_aficionados.insertar_orden(b);
-        simEnCola--;
-        afiEnLista++;
+    while(cola_simpatizantes.getLongitud()) {
+        Aficionado* a = cola_simpatizantes.extraer();
+        lista_aficionados.insertar_orden(a);
     }
 }
 void Gestor::buscarAficionados()
 {
-	lista_aficionados.mostrar();
+    lista_aficionados.mostrar();
 	lista_aficionados.buscar();
 }
-
-int Gestor::AficionadosEnPila(){return afiEnPila;}
-int Gestor::SociosEnCola(){return socEnCola;}
-int Gestor::SimpatizantesEnCola(){return simEnCola;}
-int Gestor::AficionadosEnLista(){return afiEnLista;}
+void Gestor::reiniciar()
+{
+    while(pila_aficionados.getLongitud()) {
+        Aficionado* a = pila_aficionados.extraer();
+        delete(a);
+    }
+    while(cola_socios.getLongitud()) {
+        Aficionado* a = cola_socios.extraer();
+        delete(a);
+    }
+    while(cola_simpatizantes.getLongitud()) {
+        Aficionado* a = cola_simpatizantes.extraer();
+        delete(a);
+    }
+    while(lista_aficionados.getLongitud()) {
+        Aficionado* a = lista_aficionados.extraerIzq();
+        delete(a);
+    }
+}
+int Gestor::AficionadosEnPila(){return pila_aficionados.getLongitud();}
+int Gestor::SociosEnCola(){return cola_socios.getLongitud();}
+int Gestor::SimpatizantesEnCola(){return cola_simpatizantes.getLongitud();}
+int Gestor::AficionadosEnLista(){return lista_aficionados.getLongitud();}
 
 Gestor::~Gestor(){}
