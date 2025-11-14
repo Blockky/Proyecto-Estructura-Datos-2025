@@ -4,7 +4,9 @@
 #include "Cola.hpp"
 #include "Lista.hpp"
 #include "Aficionado.hpp"
+#include "Arbol.hpp"
 #include <algorithm>
+#include <time.h>
 using namespace std;
 
 class Gestor
@@ -21,6 +23,7 @@ public:
 	void enlistarAficionados();	// H
 	void buscarAficionados();   // I
     void reiniciar();           // J
+	void crearArbol();			// K
 	int AficionadosEnPila();
 	int SociosEnCola();
 	int SimpatizantesEnCola();
@@ -32,6 +35,7 @@ private:
 	Cola cola_simpatizantes;
 	Cola cola_socios;
 	Lista lista_aficionados;
+	Arbol arbol_aficionados;
 };
 
 #endif // GESTOR_HPP

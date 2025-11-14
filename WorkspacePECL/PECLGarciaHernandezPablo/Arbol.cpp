@@ -8,10 +8,18 @@ pnodoAbb Arbol::insertar(pnodoAbb nodo, Aficionado* a)
 {
     if(!nodo)
         return new NodoArbol(a);
-    if(a->getId <= nodo->aficionado)
+    if(a->esSocio() && nodo->izq==nullptr)
         nodo->izq = insertar(nodo->izq, a);
-    else
+    else if(!a->esSocio() && nodo->der==nullptr)
         nodo->der = insertar(nodo->der, a);
+    else if(a->esSocio() && a->getID() < nodo->izq->aficionado->getID())
+        nodo->izq->izq = insertar(nodo->izq->izq, a);
+    else if(a->esSocio())
+        nodo->izq->der = insertar(nodo->izq->der, a);
+    else if(a->getID() < nodo->der->aficionado->getID())
+        nodo->der->izq = insertar(nodo->der->izq, a);
+    else
+        nodo->der->der = insertar(nodo->der->der, a);
     return nodo;
 }
 
@@ -25,7 +33,7 @@ void Arbol::pintar(pnodoAbb nodo)
     if(!nodo)
         return;
     pintar(nodo->izq);
-    cout << nodo->dato << " ";
+    cout << nodo->aficionado->getID() << " ";
     pintar(nodo->der);
 }
 int Arbol::altura(pnodoAbb nodo)
@@ -61,7 +69,7 @@ void Arbol::dibujarNodo(vector<string>& output, vector<string>& linkAbove, pnodo
 
     if(nodo->izq) {
         int numeroQueQuieroImprimirEnElArbol =
-            nodo->izq->dato; // En vez de este valor, tenéis que cambiarlo en vuestra práctica.
+            nodo->izq->aficionado->getID(); // En vez de este valor, tenéis que cambiarlo en vuestra práctica.
         string izqdato = SP + to_string(numeroQueQuieroImprimirEnElArbol) + SP;
         dibujarNodo(output, linkAbove, nodo->izq, nivel + 1, p - izqdato.size(), 'L');
         p = max(p, (int)output[nivel + 1].size());
@@ -71,7 +79,7 @@ void Arbol::dibujarNodo(vector<string>& output, vector<string>& linkAbove, pnodo
     if(space > 0)
         output[nivel] += string(space, ' ');
     int numeroQueQuieroImprimirEnElArbol =
-        nodo->dato; // En vez de este valor, tenéis que cambiarlo en vuestra práctica.
+        nodo->aficionado->getID(); // En vez de este valor, tenéis que cambiarlo en vuestra práctica.
     string nododato = SP + to_string(numeroQueQuieroImprimirEnElArbol) + SP;
     output[nivel] += nododato;
 

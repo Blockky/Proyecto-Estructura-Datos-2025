@@ -87,7 +87,7 @@ int main(int argc, char** argv)
 			gestor.reiniciar();
 			break;
 		case 'K':
-			//...;
+			gestor.crearArbol();
 			break;
 		case 'L':
 			//...;
