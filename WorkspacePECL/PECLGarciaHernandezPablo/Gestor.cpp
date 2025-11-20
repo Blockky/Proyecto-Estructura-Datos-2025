@@ -1,10 +1,6 @@
 #include "Gestor.hpp"
 
-Gestor::Gestor()
-{
-    Aficionado* a = new Aficionado(0);
-    arbol_aficionados.insertar(a);
-}
+Gestor::Gestor() {}
 
 void Gestor::genera10Aficionados()
 {
@@ -94,13 +90,13 @@ int Gestor::AficionadosEnPila() { return pila_aficionados.getLongitud(); }
 int Gestor::SociosEnCola() { return cola_socios.getLongitud(); }
 int Gestor::SimpatizantesEnCola() { return cola_simpatizantes.getLongitud(); }
 int Gestor::AficionadosEnLista() { return lista_aficionados.getLongitud(); }
-
+int Gestor::AficionadosEnArbol() { return arbol_aficionados.getLongitud(); }
 void Gestor::crearArbol()
 {
     while(lista_aficionados.getLongitud()) {
         Aficionado* a = lista_aficionados.extraerIzq();
         arbol_aficionados.insertar(a);
     }
-	arbol_aficionados.dibujar();
+    arbol_aficionados.dibujar();
 }
 Gestor::~Gestor() {}

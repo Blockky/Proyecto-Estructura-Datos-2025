@@ -28,6 +28,7 @@ public:
 	int SociosEnCola();
 	int SimpatizantesEnCola();
     int AficionadosEnLista();
+	int AficionadosEnArbol();
     ~Gestor();
     
 private:

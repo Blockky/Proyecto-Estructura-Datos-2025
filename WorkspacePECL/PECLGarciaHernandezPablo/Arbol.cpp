@@ -1,25 +1,55 @@
 #include "Arbol.hpp"
 
-Arbol::Arbol() { raiz = nullptr; }
+Arbol::Arbol()
+{
+    raiz = nullptr;
+    longitud = 0;
+}
 
-void Arbol::insertar(Aficionado* a) { raiz = insertar(raiz, a); }
+int Arbol::getLongitud() { return this->longitud; }
 
+void Arbol::insertar(Aficionado* a)
+{
+    if(raiz == nullptr) {
+        Aficionado* ficticio = new Aficionado(0);
+        raiz = new NodoArbol(ficticio);
+    }
+
+    if(a->esSocio())
+        raiz->izq = insertar(raiz->izq, a);
+    else
+        raiz->der = insertar(raiz->der, a);
+}
 pnodoAbb Arbol::insertar(pnodoAbb nodo, Aficionado* a)
 {
-    if(!nodo)
+    /* if(!nodo)
+         return new NodoArbol(a);
+     if(a->esSocio() && nodo->izq==nullptr)
+         nodo->izq = insertar(nodo->izq, a);
+     else if(!a->esSocio() && nodo->der==nullptr)
+         nodo->der = insertar(nodo->der, a);
+     else if(a->esSocio() && a->getID() < nodo->izq->aficionado->getID())
+         nodo->izq->izq = insertar(nodo->izq->izq, a);
+     else if(a->esSocio())
+         nodo->izq->der = insertar(nodo->izq->der, a);
+     else if(a->getID() < nodo->der->aficionado->getID())
+         nodo->der->izq = insertar(nodo->der->izq, a);
+     else
+         nodo->der->der = insertar(nodo->der->der, a);
+     return nodo;*/
+
+    if(!nodo) {
+        this->longitud++;
         return new NodoArbol(a);
-    if(a->esSocio() && nodo->izq==nullptr)
+    }
+
+    if(a->getID() < nodo->aficionado->getID())
+
         nodo->izq = insertar(nodo->izq, a);
-    else if(!a->esSocio() && nodo->der==nullptr)
-        nodo->der = insertar(nodo->der, a);
-    else if(a->esSocio() && a->getID() < nodo->izq->aficionado->getID())
-        nodo->izq->izq = insertar(nodo->izq->izq, a);
-    else if(a->esSocio())
-        nodo->izq->der = insertar(nodo->izq->der, a);
-    else if(a->getID() < nodo->der->aficionado->getID())
-        nodo->der->izq = insertar(nodo->der->izq, a);
+
     else
-        nodo->der->der = insertar(nodo->der->der, a);
+        nodo->der = insertar(nodo->der, a);
+
     return nodo;
 }
 
