@@ -90,25 +90,25 @@ int main(int argc, char** argv)
             gestor.crearArbol();
             break;
         case 'L':
-            //...;
+            gestor.mostrarSociosOrdenados();
             break;
         case 'M':
-            //...;
+			gestor.mostrarSimpatizantesOrdenados();
             break;
         case 'N':
-            //...;
+            gestor.mostrarInorden();
             break;
         case 'O':
-            //...;
+            //gestor.mostrarAficionadosArbol();
             break;
         case 'P':
-            //...;
+            //gestor.aficionadoIDPar();
             break;
         case 'Q':
-            //...;
+            gestor.mostrarAficionadosNodoHoja();
             break;
         case 'R':
-            //...;
+            //gestor.borrarAficionadoPorId();
             break;
         case 'S':
             cout << "Saliendo del programa...\n";

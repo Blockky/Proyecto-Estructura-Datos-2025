@@ -24,6 +24,13 @@ public:
 	void buscarAficionados();   // I
     void reiniciar();           // J
 	void crearArbol();			// K
+	void mostrarSociosOrdenados(); //L
+	void mostrarSimpatizantesOrdenados(); //M
+	void mostrarInorden(); //N
+	//void mostrarAficionadosArbol(); //O
+	//int aficionadoIDPar(); //P
+	void mostrarAficionadosNodoHoja(); //Q
+	//void borrarAficionadoPorId(); //R
 	int AficionadosEnPila();
 	int SociosEnCola();
 	int SimpatizantesEnCola();

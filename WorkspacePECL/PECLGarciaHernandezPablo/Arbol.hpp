@@ -12,8 +12,17 @@ public:
     void insertar(Aficionado* a);
     void pintar();
     void dibujar();
+	void minimoSocio();
+	void minimoSimpatizante();
     int getLongitud();
+	void mostrarOrden(pnodoAbb nodo);
+	void mostrarOrdenSocios();
+	void mostrarOrdenSimpatizantes();
+	void mostrarInorden();
+	void mostrarHojas(pnodoAbb);
+	void mostrarHojas2();
     ~Arbol();
+	
 
 private:
     pnodoAbb raiz;
@@ -22,7 +31,7 @@ private:
     int altura(pnodoAbb);
     void dibujarNodo(vector<string>& output, vector<string>& linkAbove, pnodoAbb nodo, int nivel, int minPos,
                      char linkChar);
-
+	bool esNodoHoja(pnodoAbb nodo);
     int longitud;
 };
 

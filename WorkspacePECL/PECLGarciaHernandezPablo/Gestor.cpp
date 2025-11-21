@@ -99,4 +99,16 @@ void Gestor::crearArbol()
     }
     arbol_aficionados.dibujar();
 }
+void Gestor::mostrarSociosOrdenados(){
+	arbol_aficionados.mostrarOrdenSocios();
+}
+void Gestor::mostrarSimpatizantesOrdenados(){
+	arbol_aficionados.mostrarOrdenSimpatizantes();
+}
+void Gestor::mostrarInorden(){
+	arbol_aficionados.mostrarInorden();
+}
+void Gestor::mostrarAficionadosNodoHoja(){
+	arbol_aficionados.mostrarHojas2();
+}
 Gestor::~Gestor() {}

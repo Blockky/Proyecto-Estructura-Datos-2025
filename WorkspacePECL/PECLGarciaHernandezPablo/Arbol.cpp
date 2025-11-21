@@ -8,6 +8,21 @@ Arbol::Arbol()
 
 int Arbol::getLongitud() { return this->longitud; }
 
+void Arbol::minimoSocio() { 
+	raiz = raiz->izq;
+	if(raiz->izq)
+		raiz = raiz->izq;
+		
+	return raiz->aficionado->mostrar();
+ }
+void Arbol::minimoSimpatizante(){
+	raiz = raiz->der;
+	if(raiz->izq)
+		raiz = raiz->izq;
+	return raiz->aficionado->mostrar();
+}
+
+
 void Arbol::insertar(Aficionado* a)
 {
     if(raiz == nullptr) {
@@ -159,4 +174,40 @@ void Arbol::dibujar()
     cout << '\n' << '\n';
 }
 
+void Arbol::mostrarOrden(pnodoAbb nodo){
+	if(!nodo) return;
+	else{
+		mostrarOrden(nodo->izq);
+		nodo->aficionado->mostrar();
+		mostrarOrden(nodo->der);
+	}
+}
+
+void Arbol::mostrarOrdenSocios(){
+	mostrarOrden(raiz->izq);
+}
+
+void Arbol::mostrarOrdenSimpatizantes(){
+	mostrarOrden(raiz->der);
+}
+
+void Arbol::mostrarInorden(){
+	mostrarOrden(raiz);
+}
+
+void Arbol::mostrarHojas(pnodoAbb nodo){
+	if(!nodo) return;
+	else{
+		mostrarHojas(nodo->izq);
+		if(esNodoHoja(nodo)) nodo->aficionado->mostrar();
+		mostrarHojas(nodo->der);
+	}
+}
+void Arbol::mostrarHojas2(){
+	mostrarHojas(raiz);
+}
+bool Arbol::esNodoHoja(pnodoAbb nodo){
+	if(!nodo->izq && !nodo->der) return 1;
+	else return 0;
+}
 Arbol::~Arbol() {}
