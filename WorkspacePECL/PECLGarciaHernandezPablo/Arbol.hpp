@@ -12,8 +12,6 @@ public:
     void insertar(Aficionado* a);
     void pintar();
     void dibujar();
-	void minimoSocio();
-	void minimoSimpatizante();
     int getLongitud();
 	void mostrarOrden(pnodoAbb nodo);
 	void mostrarOrdenSocios();

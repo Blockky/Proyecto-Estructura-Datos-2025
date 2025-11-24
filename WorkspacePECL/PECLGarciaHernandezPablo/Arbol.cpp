@@ -8,21 +8,6 @@ Arbol::Arbol()
 
 int Arbol::getLongitud() { return this->longitud; }
 
-void Arbol::minimoSocio() { 
-	raiz = raiz->izq;
-	if(raiz->izq)
-		raiz = raiz->izq;
-		
-	return raiz->aficionado->mostrar();
- }
-void Arbol::minimoSimpatizante(){
-	raiz = raiz->der;
-	if(raiz->izq)
-		raiz = raiz->izq;
-	return raiz->aficionado->mostrar();
-}
-
-
 void Arbol::insertar(Aficionado* a)
 {
     if(raiz == nullptr) {
@@ -37,21 +22,6 @@ void Arbol::insertar(Aficionado* a)
 }
 pnodoAbb Arbol::insertar(pnodoAbb nodo, Aficionado* a)
 {
-    /* if(!nodo)
-         return new NodoArbol(a);
-     if(a->esSocio() && nodo->izq==nullptr)
-         nodo->izq = insertar(nodo->izq, a);
-     else if(!a->esSocio() && nodo->der==nullptr)
-         nodo->der = insertar(nodo->der, a);
-     else if(a->esSocio() && a->getID() < nodo->izq->aficionado->getID())
-         nodo->izq->izq = insertar(nodo->izq->izq, a);
-     else if(a->esSocio())
-         nodo->izq->der = insertar(nodo->izq->der, a);
-     else if(a->getID() < nodo->der->aficionado->getID())
-         nodo->der->izq = insertar(nodo->der->izq, a);
-     else
-         nodo->der->der = insertar(nodo->der->der, a);
-     return nodo;*/
 
     if(!nodo) {
         this->longitud++;
@@ -174,40 +144,40 @@ void Arbol::dibujar()
     cout << '\n' << '\n';
 }
 
-void Arbol::mostrarOrden(pnodoAbb nodo){
-	if(!nodo) return;
-	else{
-		mostrarOrden(nodo->izq);
-		nodo->aficionado->mostrar();
-		mostrarOrden(nodo->der);
-	}
+void Arbol::mostrarOrden(pnodoAbb nodo)
+{
+    if(!nodo)
+        return;
+    else {
+        mostrarOrden(nodo->izq);
+        nodo->aficionado->mostrar();
+        mostrarOrden(nodo->der);
+    }
 }
 
-void Arbol::mostrarOrdenSocios(){
-	mostrarOrden(raiz->izq);
-}
+void Arbol::mostrarOrdenSocios() { mostrarOrden(raiz->izq); }
 
-void Arbol::mostrarOrdenSimpatizantes(){
-	mostrarOrden(raiz->der);
-}
+void Arbol::mostrarOrdenSimpatizantes() { mostrarOrden(raiz->der); }
 
-void Arbol::mostrarInorden(){
-	mostrarOrden(raiz);
-}
+void Arbol::mostrarInorden() { mostrarOrden(raiz); }
 
-void Arbol::mostrarHojas(pnodoAbb nodo){
-	if(!nodo) return;
-	else{
-		mostrarHojas(nodo->izq);
-		if(esNodoHoja(nodo)) nodo->aficionado->mostrar();
-		mostrarHojas(nodo->der);
-	}
+void Arbol::mostrarHojas(pnodoAbb nodo)
+{
+    if(!nodo)
+        return;
+    else {
+        mostrarHojas(nodo->izq);
+        if(esNodoHoja(nodo))
+            nodo->aficionado->mostrar();
+        mostrarHojas(nodo->der);
+    }
 }
-void Arbol::mostrarHojas2(){
-	mostrarHojas(raiz);
-}
-bool Arbol::esNodoHoja(pnodoAbb nodo){
-	if(!nodo->izq && !nodo->der) return 1;
-	else return 0;
+void Arbol::mostrarHojas2() { mostrarHojas(raiz); }
+bool Arbol::esNodoHoja(pnodoAbb nodo)
+{
+    if(!nodo->izq && !nodo->der)
+        return 1;
+    else
+        return 0;
 }
 Arbol::~Arbol() {}
