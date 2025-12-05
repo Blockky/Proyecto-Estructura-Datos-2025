@@ -18,6 +18,10 @@ public:
 	void mostrarInordenArbol();
 	void mostrarHojas();
     void borrarPorID(int id);
+	Aficionado* primerAficionado();
+	Aficionado* ultimoSocio();
+	Aficionado* primerSimpatizante();
+	Aficionado* ultimoAficionado();
     ~Arbol();
 
 private:
@@ -35,6 +39,7 @@ private:
     pnodoAbb eliminarNodo(pnodoAbb nodo);
     pnodoAbb eliminarAficionado(int id, pnodoAbb nodo);
     Aficionado* maximo(pnodoAbb nodo);
+	Aficionado* minimo(pnodoAbb nodo);
 };
 
 #endif // ARBOL_HPP

@@ -120,4 +120,23 @@ void Gestor::borrarAficionadoPorId(){
     arbol_aficionados.borrarPorID(id);
     arbol_aficionados.dibujar();
 }
+void Gestor::mostrarAficionadosArbol(){
+	Aficionado* primero = arbol_aficionados.primerAficionado();
+	Aficionado* ult_Socio = arbol_aficionados.ultimoSocio();
+	Aficionado* prim_Simp = arbol_aficionados.primerSimpatizante();
+	Aficionado* ultimo = arbol_aficionados.ultimoAficionado();
+	cout << "El primer aficionado es: " << setw(20);
+	if (primero) primero->mostrar(); 
+	cout << endl;
+	cout << "El ultimo socio es: " << setw(20); 
+	if(ult_Socio) ult_Socio->mostrar();
+	cout<<endl;
+	cout << "El primer simpatizante es: " << setw(20); 
+	if(prim_Simp) prim_Simp->mostrar(); 
+	cout <<endl;
+	cout << "El ultimo aficionado es: " << setw(20); 
+	if(ultimo) ultimo->mostrar(); 
+	cout << endl;
+	
+}
 Gestor::~Gestor() {}

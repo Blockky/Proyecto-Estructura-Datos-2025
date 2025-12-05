@@ -99,10 +99,10 @@ int main(int argc, char** argv)
             gestor.mostrarInorden();
             break;
         case 'O':
-            //gestor.mostrarAficionadosArbol();
+            gestor.mostrarAficionadosArbol();
             break;
         case 'P':
-            //gestor.aficionadoIDPar();
+            gestor.aficionadoIDPar();
             break;
         case 'Q':
             gestor.mostrarAficionadosNodoHoja();

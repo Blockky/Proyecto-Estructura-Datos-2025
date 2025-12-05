@@ -218,12 +218,53 @@ pnodoAbb Arbol::eliminarNodo(pnodoAbb nodo){
 }
 Aficionado* Arbol::maximo(pnodoAbb nodo){
     Aficionado* a;
+	if(!nodo) return a;
     if(!nodo->der) a = nodo->aficionado;
     else a = maximo(nodo->der);
+    return a;
+}
+Aficionado* Arbol::minimo(pnodoAbb nodo){
+	Aficionado* a;
+	if(!nodo) return a;
+    if(!nodo->izq) a = nodo->aficionado;
+    else a = minimo(nodo->izq);
     return a;
 }
 void Arbol::borrarPorID(int id){
 	if(id%2) eliminarAficionado(id, raiz->der);
 	else eliminarAficionado(id, raiz->izq);
+}
+Aficionado* Arbol::primerAficionado()
+{
+    if(!raiz)
+        return nullptr;
+
+    Aficionado* a = nullptr;
+    a = minimo(raiz->izq);
+    return a;
+}
+Aficionado* Arbol::ultimoSocio()
+{
+    if(!raiz || !raiz->izq)
+        return nullptr;
+    Aficionado* a = nullptr;
+    a = maximo(raiz->izq);
+    return a;
+}
+Aficionado* Arbol::primerSimpatizante()
+{
+    if(!raiz || !raiz->izq)
+        return nullptr;
+    Aficionado* a = nullptr;
+    a = minimo(raiz->der);
+    return a;
+}
+Aficionado* Arbol::ultimoAficionado()
+{
+    if(!raiz)
+        return nullptr;
+    Aficionado* a = nullptr;
+    a = maximo(raiz->der);
+    return a;
 }
 Arbol::~Arbol() {}
