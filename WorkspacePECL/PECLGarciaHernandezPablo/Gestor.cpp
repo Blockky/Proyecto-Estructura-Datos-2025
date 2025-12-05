@@ -91,6 +91,7 @@ int Gestor::SociosEnCola() { return cola_socios.getLongitud(); }
 int Gestor::SimpatizantesEnCola() { return cola_simpatizantes.getLongitud(); }
 int Gestor::AficionadosEnLista() { return lista_aficionados.getLongitud(); }
 int Gestor::AficionadosEnArbol() { return arbol_aficionados.getLongitud(); }
+
 void Gestor::crearArbol()
 {
     while(lista_aficionados.getLongitud()) {
@@ -100,15 +101,23 @@ void Gestor::crearArbol()
     arbol_aficionados.dibujar();
 }
 void Gestor::mostrarSociosOrdenados(){
-	arbol_aficionados.mostrarOrdenSocios();
+	arbol_aficionados.mostrarInordenSocios();
 }
 void Gestor::mostrarSimpatizantesOrdenados(){
-	arbol_aficionados.mostrarOrdenSimpatizantes();
+	arbol_aficionados.mostrarInordenSimpatizantes();
 }
 void Gestor::mostrarInorden(){
-	arbol_aficionados.mostrarInorden();
+	arbol_aficionados.mostrarInordenArbol();
 }
 void Gestor::mostrarAficionadosNodoHoja(){
-	arbol_aficionados.mostrarHojas2();
+	arbol_aficionados.mostrarHojas();
+}
+void Gestor::borrarAficionadoPorId(){
+    int id;
+    arbol_aficionados.dibujar();
+    std::cout << "Introduce la ID del aficionado a borrar: ";
+    std::cin >> id;
+    arbol_aficionados.borrarPorID(id);
+    arbol_aficionados.dibujar();
 }
 Gestor::~Gestor() {}

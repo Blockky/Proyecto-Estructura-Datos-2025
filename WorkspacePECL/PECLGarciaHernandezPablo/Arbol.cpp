@@ -144,40 +144,85 @@ void Arbol::dibujar()
     cout << '\n' << '\n';
 }
 
-void Arbol::mostrarOrden(pnodoAbb nodo)
+void Arbol::mostrarNodoInorden(pnodoAbb nodo)
 {
     if(!nodo)
         return;
     else {
-        mostrarOrden(nodo->izq);
+        mostrarNodoInorden(nodo->izq);
         nodo->aficionado->mostrar();
-        mostrarOrden(nodo->der);
+        mostrarNodoInorden(nodo->der);
     }
 }
 
-void Arbol::mostrarOrdenSocios() { mostrarOrden(raiz->izq); }
+void Arbol::mostrarInordenSocios() { mostrarNodoInorden(raiz->izq); }
 
-void Arbol::mostrarOrdenSimpatizantes() { mostrarOrden(raiz->der); }
+void Arbol::mostrarInordenSimpatizantes() { mostrarNodoInorden(raiz->der); }
 
-void Arbol::mostrarInorden() { mostrarOrden(raiz); }
+void Arbol::mostrarInordenArbol() { mostrarNodoInorden(raiz); }
 
-void Arbol::mostrarHojas(pnodoAbb nodo)
+void Arbol::mostrarNodoHoja(pnodoAbb nodo)
 {
     if(!nodo)
         return;
     else {
-        mostrarHojas(nodo->izq);
+        mostrarNodoHoja(nodo->izq);
         if(esNodoHoja(nodo))
             nodo->aficionado->mostrar();
-        mostrarHojas(nodo->der);
+        mostrarNodoHoja(nodo->der);
     }
 }
-void Arbol::mostrarHojas2() { mostrarHojas(raiz); }
+void Arbol::mostrarHojas() { mostrarNodoHoja(raiz); }
 bool Arbol::esNodoHoja(pnodoAbb nodo)
 {
     if(!nodo->izq && !nodo->der)
         return 1;
     else
         return 0;
+}
+pnodoAbb Arbol::eliminarAficionado(int id, pnodoAbb nodo)
+{
+    if(nodo){
+        if(id==nodo->aficionado->getID()){
+            nodo = eliminarNodo(nodo);
+        }
+        else if(id<nodo->aficionado->getID()){
+            nodo->izq = eliminarAficionado(id, nodo->izq);
+        }
+        else{
+            nodo->der = eliminarAficionado(id, nodo->der);
+        }
+    }
+}
+pnodoAbb Arbol::eliminarNodo(pnodoAbb nodo){
+    pnodoAbb nuevo;
+    Aficionado* a;
+    if(!nodo->izq){
+        nuevo = nodo->der;
+        nodo->der = nullptr;
+        delete(nodo);
+    }
+    else if(!nodo->der){
+        nuevo = nodo->izq;
+        nodo->izq = nullptr;
+        delete(nodo);
+    }
+    else{
+        a = maximo(nodo->izq);
+        nodo->aficionado = a;
+        nodo->izq = eliminarAficionado(a->getID(), nodo->izq);
+        nuevo = nodo;
+    }
+    return nuevo;
+}
+Aficionado* Arbol::maximo(pnodoAbb nodo){
+    Aficionado* a;
+    if(!nodo->der) a = nodo->aficionado;
+    else a = maximo(nodo->der);
+    return a;
+}
+void Arbol::borrarPorID(int id){
+	if(id%2) eliminarAficionado(id, raiz->der);
+	else eliminarAficionado(id, raiz->izq);
 }
 Arbol::~Arbol() {}

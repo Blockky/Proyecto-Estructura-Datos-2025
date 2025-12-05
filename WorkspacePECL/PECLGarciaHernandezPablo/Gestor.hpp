@@ -30,7 +30,7 @@ public:
 	//void mostrarAficionadosArbol(); //O
 	//int aficionadoIDPar(); //P
 	void mostrarAficionadosNodoHoja(); //Q
-	//void borrarAficionadoPorId(); //R
+	void borrarAficionadoPorId(); //R
 	int AficionadosEnPila();
 	int SociosEnCola();
 	int SimpatizantesEnCola();

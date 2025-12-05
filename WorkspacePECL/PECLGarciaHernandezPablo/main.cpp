@@ -108,7 +108,7 @@ int main(int argc, char** argv)
             gestor.mostrarAficionadosNodoHoja();
             break;
         case 'R':
-            //gestor.borrarAficionadoPorId();
+            gestor.borrarAficionadoPorId();
             break;
         case 'S':
             cout << "Saliendo del programa...\n";

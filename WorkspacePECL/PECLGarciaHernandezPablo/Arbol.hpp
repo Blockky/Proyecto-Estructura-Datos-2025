@@ -13,24 +13,28 @@ public:
     void pintar();
     void dibujar();
     int getLongitud();
-	void mostrarOrden(pnodoAbb nodo);
-	void mostrarOrdenSocios();
-	void mostrarOrdenSimpatizantes();
-	void mostrarInorden();
-	void mostrarHojas(pnodoAbb);
-	void mostrarHojas2();
+	void mostrarInordenSocios();
+	void mostrarInordenSimpatizantes();
+	void mostrarInordenArbol();
+	void mostrarHojas();
+    void borrarPorID(int id);
     ~Arbol();
-	
 
 private:
     pnodoAbb raiz;
+    int longitud;
+
     pnodoAbb insertar(pnodoAbb, Aficionado*);
     void pintar(pnodoAbb);
     int altura(pnodoAbb);
     void dibujarNodo(vector<string>& output, vector<string>& linkAbove, pnodoAbb nodo, int nivel, int minPos,
                      char linkChar);
 	bool esNodoHoja(pnodoAbb nodo);
-    int longitud;
+    void mostrarNodoInorden(pnodoAbb nodo);
+	void mostrarNodoHoja(pnodoAbb nodo);
+    pnodoAbb eliminarNodo(pnodoAbb nodo);
+    pnodoAbb eliminarAficionado(int id, pnodoAbb nodo);
+    Aficionado* maximo(pnodoAbb nodo);
 };
 
 #endif // ARBOL_HPP
