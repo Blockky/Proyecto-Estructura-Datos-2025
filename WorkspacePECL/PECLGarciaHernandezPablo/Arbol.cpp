@@ -217,7 +217,8 @@ pnodoAbb Arbol::eliminarNodo(pnodoAbb nodo){
     return nuevo;
 }
 Aficionado* Arbol::maximo(pnodoAbb nodo){
-    Aficionado* a;
+    if(!nodo) return NULL;
+	Aficionado* a;
     if(!nodo->der) a = nodo->aficionado;
     else a = maximo(nodo->der);
     return a;
