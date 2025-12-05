@@ -193,6 +193,7 @@ pnodoAbb Arbol::eliminarAficionado(int id, pnodoAbb nodo)
             nodo->der = eliminarAficionado(id, nodo->der);
         }
     }
+	return nodo;
 }
 pnodoAbb Arbol::eliminarNodo(pnodoAbb nodo){
     pnodoAbb nuevo;
