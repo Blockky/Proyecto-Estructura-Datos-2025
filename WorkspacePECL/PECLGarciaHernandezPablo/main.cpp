@@ -102,7 +102,7 @@ int main(int argc, char** argv)
             gestor.mostrarAficionadosArbol();
             break;
         case 'P':
-            gestor.aficionadoIDPar();
+            //gestor.aficionadoIDPar();
             break;
         case 'Q':
             gestor.mostrarAficionadosNodoHoja();
