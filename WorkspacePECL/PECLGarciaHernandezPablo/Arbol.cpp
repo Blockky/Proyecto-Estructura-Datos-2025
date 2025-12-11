@@ -8,6 +8,9 @@ Arbol::Arbol()
 
 int Arbol::getLongitud() { return this->longitud; }
 
+void Arbol::setLongitud(int nuevaLongitud){
+	this->longitud = nuevaLongitud;
+}
 void Arbol::insertar(Aficionado* a)
 {
     if(raiz == nullptr) {
@@ -200,10 +203,12 @@ pnodoAbb Arbol::eliminarNodo(pnodoAbb nodo)
     if(!nodo->izq) {
         nuevo = nodo->der;
         nodo->der = nullptr;
+		this->longitud--; 
         delete(nodo);
     } else if(!nodo->der) {
         nuevo = nodo->izq;
         nodo->izq = nullptr;
+		this->longitud--; 
         delete(nodo);
     } else {
         a = maximo(nodo->izq);
@@ -274,5 +279,12 @@ Aficionado* Arbol::ultimoAficionado()
     Aficionado* a = nullptr;
     a = maximo(raiz->der);
     return a;
+}
+int Arbol::contarNodos(pnodoAbb nodo){
+	if(!nodo) return 0;
+	else return 1+contarNodos(nodo->der)+contarNodos(nodo->izq);
+}
+int Arbol::cuantosPares(){
+	return contarNodos(raiz->izq);
 }
 Arbol::~Arbol() {}

@@ -28,7 +28,7 @@ public:
 	void mostrarSimpatizantesOrdenados(); //M
 	void mostrarInorden(); //N
 	void mostrarAficionadosArbol(); //O
-	//int aficionadoIDPar(); //P
+	void aficionadoIDPar(); //P
 	void mostrarAficionadosNodoHoja(); //Q
 	void borrarAficionadoPorId(); //R
 	int AficionadosEnPila();

@@ -13,6 +13,7 @@ public:
     void pintar();
     void dibujar();
     int getLongitud();
+	void setLongitud(int nuevaLongitud);
 	void mostrarInordenSocios();
 	void mostrarInordenSimpatizantes();
 	void mostrarInordenArbol();
@@ -22,6 +23,7 @@ public:
 	Aficionado* ultimoSocio();
 	Aficionado* primerSimpatizante();
 	Aficionado* ultimoAficionado();
+    int cuantosPares();
     ~Arbol();
 
 private:
@@ -40,6 +42,7 @@ private:
     pnodoAbb eliminarAficionado(int id, pnodoAbb nodo);
     Aficionado* maximo(pnodoAbb nodo);
 	Aficionado* minimo(pnodoAbb nodo);
+    int contarNodos(pnodoAbb nodo);
 };
 
 #endif // ARBOL_HPP

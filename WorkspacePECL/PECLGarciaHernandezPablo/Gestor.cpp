@@ -115,28 +115,35 @@ void Gestor::mostrarAficionadosNodoHoja(){
 void Gestor::borrarAficionadoPorId(){
     int id;
     arbol_aficionados.dibujar();
-    std::cout << "Introduce la ID del aficionado a borrar: ";
-    std::cin >> id;
-    arbol_aficionados.borrarPorID(id);
-    arbol_aficionados.dibujar();
+    cout << "Introduce la ID del aficionado a borrar: ";
+    cin >> id;
+	if (id < 1){
+		cout << "ERROR, la ID no es valida" << endl;
+	} else {
+		arbol_aficionados.borrarPorID(id);
+		arbol_aficionados.dibujar();
+	}
 }
 void Gestor::mostrarAficionadosArbol(){
 	Aficionado* primero = arbol_aficionados.primerAficionado();
 	Aficionado* ult_Socio = arbol_aficionados.ultimoSocio();
 	Aficionado* prim_Simp = arbol_aficionados.primerSimpatizante();
 	Aficionado* ultimo = arbol_aficionados.ultimoAficionado();
-	cout << "El primer aficionado es: " << setw(20);
+	cout << "El primer aficionado es: \t" << setw(20);
 	if (primero) primero->mostrar(); 
 	cout << endl;
-	cout << "El ultimo socio es: " << setw(20); 
+	cout << "El ultimo socio es: \t\t" << setw(20); 
 	if(ult_Socio) ult_Socio->mostrar();
 	cout<<endl;
-	cout << "El primer simpatizante es: " << setw(20); 
+	cout << "El primer simpatizante es: \t" << setw(20); 
 	if(prim_Simp) prim_Simp->mostrar(); 
 	cout <<endl;
-	cout << "El ultimo aficionado es: " << setw(20); 
+	cout << "El ultimo aficionado es: \t" << setw(20); 
 	if(ultimo) ultimo->mostrar(); 
-	cout << endl;
-	
+	cout << endl;	
+}
+void Gestor::aficionadoIDPar(){
+	int pares = arbol_aficionados.cuantosPares();
+	cout << "Hay " << pares << " aficionados con ID par en el arbol." << endl; 
 }
 Gestor::~Gestor() {}
